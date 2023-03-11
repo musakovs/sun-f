@@ -11,5 +11,7 @@
             "email": "m.usakovs@dynatech.lv"
         }
     ],
-    "require": {}
+    "require-dev": {
+        "phpunit/phpunit": "^10"
+    }
 }
