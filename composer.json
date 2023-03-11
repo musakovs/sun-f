@@ -1,0 +1,15 @@
+{
+    "name": "maxim/sun-finance",
+    "autoload": {
+        "psr-4": {
+            "Maxim\\SunFinance\\": "src/"
+        }
+    },
+    "authors": [
+        {
+            "name": "Musakovs",
+            "email": "m.usakovs@dynatech.lv"
+        }
+    ],
+    "require": {}
+}
