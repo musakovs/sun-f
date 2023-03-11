@@ -17,11 +17,4 @@ class DataProvider
     {
         return $this->dataStorage->getAll();
     }
-
-    public function getFilteredByDate(string $date): array
-    {
-        return array_filter($this->all(), function($item) use ($date) {
-            return $item['date'] === $date;
-        });
-    }
 }

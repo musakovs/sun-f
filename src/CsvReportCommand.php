@@ -3,6 +3,7 @@
 namespace Maxim\SunFinance;
 
 use Maxim\SunFinance\Report\DataProvider;
+use Maxim\SunFinance\Report\DateFilter;
 
 class CsvReportCommand implements CommandInterface
 {
@@ -35,12 +36,8 @@ class CsvReportCommand implements CommandInterface
 
     private function prepareData(array $options): string
     {
-        if (!empty($options['date'])) {
-            $data = $this->dataProvider->getFilteredByDate($options['date']);
-        } else {
-            $data = $this->dataProvider->all();
-        }
-
-        return $this->csv->make($data);
+        return $this->csv->make(
+            (new DateFilter($this->dataProvider, $options['date']))->jsonSerialize()
+        );
     }
 }

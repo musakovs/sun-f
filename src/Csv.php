@@ -22,4 +22,25 @@ class Csv
 
         return $csv;
     }
+
+    public function fromFile(string $filename): array
+    {
+        $rows = [];
+
+        if (($file = fopen($filename, 'r')) !== false) {
+            $headers = fgetcsv($file);
+
+            while (($data = fgetcsv($file)) !== false) {
+                $row = array();
+                foreach ($headers as $i => $header) {
+                    $row[$header] = $data[$i];
+                }
+                $rows[] = $row;
+            }
+
+            fclose($file);
+        }
+
+        return $rows;
+    }
 }
